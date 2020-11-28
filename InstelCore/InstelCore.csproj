@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <Folder Include="Areas\Services\Controllers\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
 
 </Project>

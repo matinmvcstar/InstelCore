@@ -29,9 +29,10 @@
 
     <!-- Template Main CSS File -->
     <link rel="stylesheet" href="~/css/site.css" />
+    @await RenderSectionAsync("Styles", required: false)
 
     @*@Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")*@
+        @Scripts.Render("~/bundles/modernizr")*@
 
     <!-- =======================================================
     * Template Name: BlueRosima - v0.9.0
@@ -83,9 +84,9 @@
             </nav><!-- .nav-menu -->
 
             <a href="index.html" class="invitation" style="font-family:'B Yekan';">دعوت به همکاری</a>
-            <a class="search-btn"><i class="icofont-ui-search" data-toggle="modal" data-target="#myModal" title="جستجو" style="font-size:30px ; color: #556270;"></i></a>
+            <a class="search-btn"><i class="icofont icofont-ui-search" data-toggle="modal" data-target="#myModal" title="جستجو" style="color: #556270;"></i></a>
             <div class="shopping-box">
-                <a href="#" class="shopping-btn"><i class="icofont-shopping-cart" style="font-size:30px ; color: #556270;"></i></a>
+                <a href="#" class="shopping-btn"><i class="icofont icofont-shopping-cart" style="font-size:30px ; color: #556270;"></i></a>
                 <span class="shopping-notif">3</span>
             </div>
         </div>
