@@ -1,0 +1,183 @@
+body{
+    background-image: url('/img/Login/backlogin-01.png');
+    background-size: cover;
+    direction: rtl;
+    font-family: 'BYekan', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+}
+
+
+
+.login{
+    width: 800px;
+    height: 544px;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 4%;
+    position: relative;
+    box-shadow: 0 0 30px #d7dee9;
+    border-radius: 10px;
+}
+
+.login .register-info {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    padding-right: 40px;
+}
+
+.login .register-info li {
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.login .register-info i {
+    font-size: 25px;
+    color: black;
+    position: absolute;
+    right: 16%;
+    padding-top: 3%;
+    padding-left: 5px;
+}
+.login .register-info i::after{
+    content: '';
+    border-left: 1px solid #fff;
+    position: relative;
+    right:30px;
+    top:0.5px;
+}
+.leftsidepic {
+    width: 480px;
+    height: 545px;
+    margin-left: -1px;
+    border-radius: 10px 0 0 10px;
+}
+
+.login .logo-user img{
+    
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    right: 13%;
+    top: 10%;
+    border-radius: 50%;
+}
+
+.login li {
+    
+    list-style-type: none;
+    
+}
+
+.list{
+    font-size: inherit;
+    background-color: #e0e2e4;
+    border-radius: 50px;
+    border: none;
+    padding: 6px 50px 8px 18px;
+    width: 280px;
+    
+    
+}
+
+.list:focus {
+    outline: none;
+    background-color: #cacdcf ;
+    transition: all 0.8s;
+}
+
+.btn-register{
+    background-color:  rgb(3, 179, 164);
+    color: #fff;
+    border: none;
+    width: 200px;
+    height:43px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 10px auto 0 45px;
+    box-shadow: 0 0 30px #d7dee9;
+}
+
+.btn-register:hover{
+    background-color:rgb(7, 228, 209) ;
+    transition: all 0.5s;
+}
+
+
+
+.btn-register:focus{
+    outline: none;
+}
+.login li a {
+    text-decoration: none;
+}
+.enter {
+    text-align: center;
+    
+}
+
+.enter{
+    margin-top: 15px;
+    
+}
+
+
+.enter a{
+    color:rgb(3, 179, 164);
+    font-size: 25px;
+
+}
+.enter a:hover{
+    
+    color:rgb(3, 235, 215) ;
+}
+.mobile-version-pic{
+    width: 400px;
+    height: 200px;
+    
+    
+}
+@media (min-width: 768px){
+    .mobile-version-pic{
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .leftsidepic , .logo-user{
+        display: none;
+    }
+
+    .login{
+        width: 400px;
+        height: 544px;
+        background-color: #fff;
+        margin: 0 auto;
+        margin-top: 4%;
+        position: relative;
+        box-shadow: 0 0 30px #d7dee9;
+        justify-content: center;
+    
+    }
+    .login ul {
+        margin-top: 30px;
+    
+    }
+    
+    .login .register-info{
+        
+        padding-right: 61px;
+        justify-content: center;
+    
+    }
+
+    .login .register-info i {
+
+        right: 19%;
+    }
+    
+    .enter {
+        margin-bottom: 5px;
+        padding-left: 8px;
+    }
+}
+

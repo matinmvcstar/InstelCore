@@ -1,0 +1,122 @@
+body{
+    background-image: url('/img/Login/backlogin-01.png');
+    background-size: cover;
+    direction: rtl;
+    font-family: 'BYekan', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+}
+
+
+
+.login{
+    border-radius: 10px;
+    width: 400px;
+    height: 544px;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 4%;
+    box-shadow: 0 0 30px #d7dee9;
+    align-items: center;
+    
+
+}
+.login a {
+    text-decoration:none;
+}
+
+.pic{
+    width: 400px;
+    height: 250px;
+    
+}
+
+
+.register-info{
+    margin: 10px 0 0 0;
+    width: 100%;
+    list-style-type: none;
+    padding:0;
+    position: relative;
+    font-size: 15px;
+    font-weight: 700;
+    
+}
+.register-info li :not(:first-child){
+    margin-bottom: 10px;
+    direction: rtl !important;
+}
+
+.register-info i{
+    
+        font-size: 25px;
+        color: #2d2e30;
+        position: absolute;
+        right: 3%;
+        padding-top: 26px;  
+        padding-left: 3px;
+        /*border-left: 1px solid white;*/
+    
+}
+
+
+.login .list-data{
+    
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.list{
+    width: 100%;
+    padding: 5px 43px 5px 5px;
+    height: 43px;
+    text-align: right;
+    background-color: #e0e2e4;
+    border : none ;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+.list:focus {
+    outline: none;
+    background-color:#bebfc0 ;
+    transition: all 0.5s;
+}
+
+
+
+.btn-register{
+    width: 120px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-image: linear-gradient(to left, #18a0b2  , #43e6e3 );
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    transition: 1s;
+}
+
+.btn-register:hover{
+    background-image: linear-gradient(to right, #18a0b2  , #43e6e3 );
+    transition: all 1s;
+}
+.btn-register:focus{
+    outline: none;
+    
+}
+.btn-register:active{
+    background-color: rgb(23, 145, 158);
+    transition: all .5s;
+}
+
+.radio-btn{
+    position: absolute;
+    right: 0;
+}
+.remember{
+    position: absolute;
+    left: 0;
+}

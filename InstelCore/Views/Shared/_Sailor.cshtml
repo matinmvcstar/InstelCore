@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>@ViewData["Title"] - خدمات طراحی رزآبی</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/img/Logo/BR-Icon.png" rel="icon">
+    <link href="~/img/Logo/BR-Icon-Apple-Touch.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/icofont/icofont.min.css" rel="stylesheet" />
+    <link href="~/css/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/css/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="~/css/venobox/venobox.min.css" rel="stylesheet" />
+    <link href="~/css/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="~/css/css/style.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+
+    <!-- =======================================================
+    * Template Name: BlueRosima - v0.9.0
+    * Template URL: https://BlueRosima.ir
+    * Author: Matin Abbasi
+    ======================================================== -->
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="topbar container d-flex align-items-center" style="font-family:'B Yekan';">
+
+            <h1 class="logo"><a asp-area="Customer" asp-controller="Home" asp-action="Index"><img src="/img/Logo/BR-Icon.png" /></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav class="nav-menu d-none d-lg-block">
+
+                <ul>
+                    <li class="active"><a asp-area="Customer" asp-controller="Home" asp-action="Index" style="font-family:'B Yekan';">صفحه اصلی</a></li>
+
+                    <li class="drop-down">
+                        <a href="#" style="font-family:'B Yekan';">درباره ما</a>
+                        <ul>
+                            <li><a asp-area="Customer" asp-controller="Home" asp-action="About" style="font-family:'B Yekan';">درباره ما</a></li>
+                            <li><a asp-area="Customer" asp-controller="Home" asp-action="Contact" style="font-family:'B Yekan';">تماس با ما</a></li>
+                            <li><a href="team.html" style="font-family:'B Yekan';">اعضا شرکت</a></li>
+                            <li><a href="testimonials.html" style="font-family:'B Yekan';">Testimonials</a></li>
+
+                            <li class="drop-down">
+                                <a href="#">Deep Drop Down</a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="services.html" style="font-family:'B Yekan';">خدمات</a></li>
+                    <li><a href="pricing.html" style="font-family:'B Yekan';">قیمت</a></li>
+                    <li><a href="تماس_با_ما" style="font-family:'B Yekan';">تماس با ما</a></li>
+                    <li><a href="login.html" style="font-family:'B Yekan';">ورود / عضویت</a></li>
+                </ul>
+
+            </nav><!-- .nav-menu -->
+
+            <a href="index.html" class="invitation" style="font-family:'B Yekan';">دعوت به همکاری</a>
+            <a class="search-btn"><i class="icofont-ui-search" data-toggle="modal" data-target="#myModal" title="جستجو" style="font-size:30px ; color: #556270;"></i></a>
+            <div class="shopping-box">
+                <a href="#" class="shopping-btn"><i class="icofont-shopping-cart" style="font-size:30px ; color: #556270;"></i></a>
+                <span class="shopping-notif">3</span>
+            </div>
+        </div>
+
+    </header>
+    <!-- End Header -->
+    <div class="modal-search modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form-control">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="input-group-text btn btn-success btn-block" type="submit"><i class="icofont icofont-search"></i></button>
+                            </div>
+                            <input type="text" class="form-control text-right" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend" style="border: none;">
+                                <a class="input-group-text btn btn-danger btn-block" data-dismiss="modal"><i class="icofont icofont-close"></i></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 1399 - InstelCore - <a asp-area="HOME" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Vendor JS Files -->
+    <script src="~/js/jquery/jquery.min.js"></script>
+    <script src="~/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/js/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/js/venobox/venobox.min.js"></script>
+    <script src="~/js/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/js/owl.carousel/owl.carousel.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/js/js/main.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
