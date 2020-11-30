@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using InstelCore.Models;
 
 namespace InstelCore.Data
 {
@@ -12,5 +13,7 @@ namespace InstelCore.Data
             : base(options)
         {
         }
+
+        public DbSet<Slider> Slider { get; set; }
     }
 }
