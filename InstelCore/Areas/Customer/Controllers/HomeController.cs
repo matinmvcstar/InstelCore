@@ -35,8 +35,20 @@ namespace InstelCore.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Contact()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Contact(object model)
+        {
+            if (ModelState.IsValid)
+            {
+                //await _context.SaveChangesAsync();
+            }
             return View();
         }
 
