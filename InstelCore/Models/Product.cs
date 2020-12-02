@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InstelCore.Models
 {
-    public class Slider
+    public class Product
     {
         [Key]
         public int Id { get; set; }
@@ -17,12 +17,22 @@ namespace InstelCore.Models
         [Required(ErrorMessage = "یک عکس انتخاب کنید")]
         public string Image { get; set; }
 
+        [Display(Name = "عنوان")]
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "یک عنوان وارد کنید")]
+        public string Header { get; set; }
+
+        [Display(Name = "متن")]
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "متن پیام را وارد کنید")]
+        public string Text { get; set; }
+
         [Display(Name = "تاریخ ثبت")]
         [DataType(DataType.Date)]
-        [Required(ErrorMessage = "تاریخ ثبت را وارد کنید",AllowEmptyStrings = true)]
+        [Required(ErrorMessage = "تاریخ ثبت را وارد کنید", AllowEmptyStrings = true)]
         public DateTime CreateSlide { get; set; }
 
-        [Display(Name = "نمایش یا عدم نمایش تصویر")]
+        [Display(Name = "نمایش یا عدم نمایش پست")]
         [DataType(DataType.ImageUrl)]
         public bool Active { get; set; }
 
