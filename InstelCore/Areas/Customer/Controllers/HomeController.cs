@@ -52,16 +52,6 @@ namespace InstelCore.Controllers
             return View();
         }
 
-        public IActionResult Show(int id, string image, bool active)
-        {
-            Slider model = new Slider();
-            model.Id = id;
-            model.Image = image;
-            model.Active = active;
-            model.CreateSlide = DateTime.Now;
-            return View(model);
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
