@@ -21,5 +21,7 @@ namespace InstelCore.Data
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<CoLogo> CoLogos { get; set; }
+
+        public DbSet<InstelCore.Models.CategoryVM> CategoryVM { get; set; }
     }
 }

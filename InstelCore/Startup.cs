@@ -33,9 +33,6 @@ namespace InstelCore
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            //services.AddTransient<IEmailSender, AuthMessageSender>();
-            //services.AddScoped<IEmailSender, AuthMessageSender>();
-
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();

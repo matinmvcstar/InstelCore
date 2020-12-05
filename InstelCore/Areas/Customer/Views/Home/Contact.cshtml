@@ -1,15 +1,13 @@
-﻿
+﻿@model InstelCore.Models.MailRequest
+
 @{
     ViewData["Title"] = "تماس با ما";
     Layout = "~/Views/Shared/_Sailor.cshtml";
 }
-
 <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
-
             <div class="d-flex justify-content-between align-items-center" style="font-family: 'B Yekan'">
                 <h2 style="font-family: 'B Yekan'">درباره رز آبی</h2>
                 <ol>
@@ -17,7 +15,6 @@
                     <li><a href="Index">صفحه اصلی</a></li>
                 </ol>
             </div>
-
         </div>
     </section>
     <!-- End Breadcrumbs -->
@@ -30,30 +27,88 @@
                     <h3 style="font-family: 'B Koodak'">خدمات طراحی رز آبی با هدف طراحی گرافیک آنلاین از زمان ثبت تا زمان تحویل به مشتری</h3>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 text-right text-justify">
-                    <form method="post">
+                    @using (Html.BeginForm("Contact", "Home"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">
-                            <label class="control-label"> نام و نام خانوادگی :</label>
-                            <input class="form-control" />
-                            <span class="text-danger"></span>
+                            <label class="control-label">نام و نام خانوادگی: </label>
+                            @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", placeholder = "مثال: علی حسینی", @value = ViewBag.Fullname })
+                            <span asp-validation-for="FullName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">پست الکترونیک : </label>
-                            <input class="form-control" />
-                            <span class="text-danger"></span>
+                            <label class="control-label">پست الکترونیک: </label>
+                            @Html.TextBoxFor(model => model.To, new { @class = "form-control", placeholder = "info@instel.ir" })
+                            <span asp-validation-for="To" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">عنوان : </label>
-                            <input class="form-control" />
-                            <span class="text-danger"></span>
+                            <label class="control-label">عنوان: </label>
+                            @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", placeholder = "مثال: مشکل در سایت" })
+                            <span asp-validation-for="Subject" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">عنوان : </label>
-                            <textarea rows="4" class="form-control"></textarea>
+                            <label class="control-label">متن پیام: </label>
+                            @Html.TextAreaFor(model => model.Body, new { rows = "3", @class = "form-control", placeholder = "متن پیام" })
+                            <span asp-validation-for="Body" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="ارسال پیام" class="form-control btn btn-outline-primary btn-block" />
+                            <button id="mysubmit" type="button" class="btn btn-primary form-control" data-toggle="modal" data-target="#exampleModal">
+                                @ViewData["Message"]
+                            </button>
                         </div>
-                    </form>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="rtl">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 class="modal-title" id="exampleModalLabel">ایمیل ارسال شود؟</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">لغو</button>
+                                        <div class="form-group">
+                                            <button id="mysubmit" title="ارسال پیام" onclick="myFunction()" type="submit" class="btn btn-primary btn-block">
+                                                <span id="myDIV" class="spinner-border spinner-border-sm align-middle" role="status" aria-hidden="true"></span>
+                                                تایید ارسال
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                                <label class="control-label">نام و نام خانوادگی: </label>
+                                @Html.TextBoxFor(Model => Model.FullName, new { @class = "form-control" })
+                                <input name="fullname" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">پست الکترونیک: </label>
+                                @Html.TextBoxFor(Model => Model.To, new { @class = "form-control" })
+                                <input name="email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">عنوان: </label>
+                                @Html.TextBoxFor(Model => Model.Subject, new { @class = "form-control" })
+                                <input name="name" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">متن پیام: </label>
+                                @Html.TextAreaFor(model => model.Body, new { rows = "3", @class = "form-control" })
+                                <input name="msg" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">فایل تصوی: </label>
+                                @Html.TextBoxFor(model => model.Attachment, new { type = "file", @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="ارسال پیام" class="form-control btn btn-outline-primary btn-block" />
+                                <span style="color:green">@ViewBag.Message</span>
+                            </div>*@
+                    }
                 </div>
             </div>
         </div>
@@ -182,9 +237,14 @@
 
 </main>
 <!-- End #main -->
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<script type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
 
