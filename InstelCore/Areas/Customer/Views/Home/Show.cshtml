@@ -1,0 +1,18 @@
+﻿@model IEnumerable<InstelCore.Data.Product>
+
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h1>Show</h1>
+<br />
+<br />
+<br />
+<br />
+<p>
+    @Model.Count()
+    @foreach(var p in Model)
+    {
+        <li>@p.Header</li>
+    }
+</p>

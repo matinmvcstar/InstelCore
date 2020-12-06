@@ -1,4 +1,6 @@
-﻿using InstelCore.Models;
+﻿using InstelCore.Contracts;
+using InstelCore.Data;
+using InstelCore.Models;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
@@ -19,15 +21,24 @@ namespace InstelCore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
+        private readonly IProductRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+            ApplicationDbContext context,
+            IProductRepository repository)
         {
+            _context = context;
             _logger = logger;
+            _repository = repository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var Slide = from q in _context.Products
+                        orderby q.Id
+                        select q;
+            return View(Slide.ToList());
         }
 
         public IActionResult Privacy()
@@ -40,17 +51,25 @@ namespace InstelCore.Controllers
             return View();
         }
 
+        public IActionResult Show()
+        {
+            var result = _repository.GetAll();
+
+            return View(result.ToList());
+        }
+
         [Route("ارتباط_با_ما")]
         public IActionResult Contact(string value)
         {
             if (value == null)
-            {
+            {ModelState.Clear();
                 ViewData["Message"] = "ارسال پیام";
             }
             else
             {
                 ViewData["Message"] = value;
             }
+            ModelState.Clear();
             return View();
         }
 
@@ -87,6 +106,7 @@ namespace InstelCore.Controllers
                     }
                 }
             }
+            ModelState.Clear();
             return View(model);
         }
 
