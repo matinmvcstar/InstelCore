@@ -35,10 +35,7 @@ namespace InstelCore.Controllers
 
         public IActionResult Index()
         {
-            var Slide = from q in _context.Products
-                        orderby q.Id
-                        select q;
-            return View(Slide.ToList());
+            return View();
         }
 
         public IActionResult Privacy()

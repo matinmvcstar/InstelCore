@@ -2,7 +2,7 @@
 
 namespace InstelCore.Data.Migrations
 {
-    public partial class UpdateOne : Migration
+    public partial class AddOrderDetailsTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,26 +18,10 @@ namespace InstelCore.Data.Migrations
                 name: "PK_CoLogos",
                 table: "CoLogos",
                 column: "Id");
-
-            migrationBuilder.CreateTable(
-                name: "CategoryVM",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoryVM", x => x.Id);
-                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "CategoryVM");
-
             migrationBuilder.DropPrimaryKey(
                 name: "PK_CoLogos",
                 table: "CoLogos");

@@ -23,7 +23,7 @@ namespace InstelCore.Areas.Services.Controllers
         // GET: Services/CategoryVMs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CategoryVM.ToListAsync());
+            return View(await _context.Categories.ToListAsync());
         }
 
         // GET: Services/CategoryVMs/Details/5
@@ -34,7 +34,7 @@ namespace InstelCore.Areas.Services.Controllers
                 return NotFound();
             }
 
-            var categoryVM = await _context.CategoryVM
+            var categoryVM = await _context.Categories
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (categoryVM == null)
             {
@@ -74,7 +74,7 @@ namespace InstelCore.Areas.Services.Controllers
                 return NotFound();
             }
 
-            var categoryVM = await _context.CategoryVM.FindAsync(id);
+            var categoryVM = await _context.Categories.FindAsync(id);
             if (categoryVM == null)
             {
                 return NotFound();
@@ -125,7 +125,7 @@ namespace InstelCore.Areas.Services.Controllers
                 return NotFound();
             }
 
-            var categoryVM = await _context.CategoryVM
+            var categoryVM = await _context.Categories
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (categoryVM == null)
             {
@@ -140,15 +140,15 @@ namespace InstelCore.Areas.Services.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categoryVM = await _context.CategoryVM.FindAsync(id);
-            _context.CategoryVM.Remove(categoryVM);
+            var categoryVM = await _context.Categories.FindAsync(id);
+            _context.Categories.Remove(categoryVM);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoryVMExists(int id)
         {
-            return _context.CategoryVM.Any(e => e.Id == id);
+            return _context.Categories.Any(e => e.Id == id);
         }
     }
 }

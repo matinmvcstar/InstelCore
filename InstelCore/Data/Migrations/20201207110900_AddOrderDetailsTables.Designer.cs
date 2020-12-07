@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InstelCore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201203163418_UpdateOne")]
-    partial class UpdateOne
+    [Migration("20201207110900_AddOrderDetailsTables")]
+    partial class AddOrderDetailsTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,21 +98,6 @@ namespace InstelCore.Data.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("InstelCore.Models.CategoryVM", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CategoryVM");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

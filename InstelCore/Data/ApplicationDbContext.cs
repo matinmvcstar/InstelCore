@@ -22,6 +22,8 @@ namespace InstelCore.Data
 
         public DbSet<CoLogo> CoLogos { get; set; }
 
-        public DbSet<InstelCore.Models.CategoryVM> CategoryVM { get; set; }
+        public DbSet<Order> orders { get; set; }
+
+        public DbSet<OrderItem> orderItems { get; set; }
     }
 }
